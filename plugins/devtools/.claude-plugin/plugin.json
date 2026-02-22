@@ -1,0 +1,12 @@
+{
+  "name": "devtools",
+  "version": "0.0.1",
+  "description": "My Claude Code dev tools",
+  "author": {
+    "name": "Scott McClung",
+    "email": "therealscottmcclung@gmail.com",
+    "url": "https://github.com/scottmcclung"
+  },
+  "repository": "https://github.com/scottmcclung/cc-plugin-marketplace",
+  "license": "MIT"
+}

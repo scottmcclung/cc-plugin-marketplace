@@ -1,0 +1,13 @@
+{
+  "name": "cc-plugin-marketplace",
+  "owner": {
+    "name": "Scott McClung"
+  },
+  "plugins": [
+    {
+      "name": "devtools",
+      "source": "./plugins/devtools",
+      "description": "Agents, skills, and commands for my dev process"
+    }
+  ]
+}
