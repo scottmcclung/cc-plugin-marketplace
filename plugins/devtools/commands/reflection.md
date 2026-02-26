@@ -38,6 +38,7 @@ Analyze the chat history, instructions, commands and config to identify areas th
 - New commands or improvements to a commands name, function or response
 - Permissions and MCPs we've approved locally that we should add to the config, especially if we've added new tools or require them for the command to work
 - Patterns that have been repeated across sessions (check against existing process improvement issues to avoid duplicates)
+- Inefficient use of the limited context. Areas where Claude could have made better use of sub-agents.
 
 2. Interaction Phase:
 Present your findings and improvement ideas to the human. For each suggestion:
