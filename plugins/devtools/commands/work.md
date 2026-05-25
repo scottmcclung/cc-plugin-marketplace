@@ -55,12 +55,13 @@ Use the most qualified engineer sub-agent to analyze the code review feedback an
 Use a **`devtools:dev-ops-engineer`** sub-agent to finalize the task. **The dev-ops-engineer is responsible for all final commits and merging to main.** Follow this exact order:
 
 1. **Run the full test suite** — (all tests, not just task-specific ones) in the worktree. This catches cross-cutting regressions like layout tests, contract tests, etc. **ALL tests must pass before committing. This is non-negotiable.** If any test fails — even tests unrelated to the current task — the build is broken and must be fixed before proceeding. Do NOT commit with failing tests, do NOT dismiss failures as "pre-existing," and do NOT skip, suppress, or weaken tests to make them pass. If a test failure is genuinely caused by a bug outside the current task's scope, fix it in the current worktree before committing.
-2. **Commit all work in the worktree** — `git add -A && git commit` in the worktree directory. Verify the commit exists (`git log --oneline -1`). **NEVER proceed to merge without a verified commit.**
-3. **Merge the branch to main** — switch to main and `git merge task/<name>`
-4. **Clean up** — stop Docker containers, remove worktree, delete branch, prunes
-5. **Close the beads issue** — `bd close <id>`
-6. **Sync and push** — `bd sync`, `git add -A && git commit` (for beads changes), `git push`
-7. **Verify** — `git status` must show clean and up to date with origin
+2. **Flakes get filed, not retried.** If any test fails intermittently during the session — even if it eventually passes — file a follow-up bd issue capturing the failure mode, the observed rate, and whether it reproduces on main. Silent retry-until-green loses the signal.
+3. **Commit all work in the worktree** — `git add -A && git commit` in the worktree directory. Verify the commit exists (`git log --oneline -1`). **NEVER proceed to merge without a verified commit.**
+4. **Merge the branch to main** — switch to main and `git merge task/<name>`
+5. **Clean up** — stop Docker containers, remove worktree, delete branch, prunes
+6. **Close the beads issue** — `bd close <id>`
+7. **Sync and push** — `bd sync`, `git add -A && git commit` (for beads changes), `git push`
+8. **Verify** — `git status` must show clean and up to date with origin
 
 **CRITICAL**: Steps must be followed in order. Never remove a worktree before the branch has been committed and merged. Uncommitted work in a removed worktree is permanently lost.
 
